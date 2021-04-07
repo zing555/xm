@@ -3,14 +3,16 @@ name: Delete workflow runs
 on:
   workflow_dispatch:
     inputs:
-      days: #要保留的天数
+      days:
         description: 'Number of days.'
         required: true
-        default: 1
-      runs: #要为每个yml保留的个数
+        default: 2
+      runs:
         description: 'Number of runs.'
         required: true
-        default: 1
+        default: 0
+  # schedule:
+  #   - cron: '0 0 * * *'
   watch:
     types: started
   repository_dispatch:
