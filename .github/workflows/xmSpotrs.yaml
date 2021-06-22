@@ -29,3 +29,9 @@ jobs:
        XMYD_STEP: ${{ secrets.XMYD_STEP || github.event.client_payload.XMYD_STEP }}
        TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN || github.event.client_payload.TG_BOT_TOKEN }}
        TG_USER_ID: ${{ secrets.TG_USER_ID || github.event.client_payload.TG_USER_ID }}
+
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        retain_days: 1
+        keep_minimum_runs: 1
