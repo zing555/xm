@@ -1,0 +1,30 @@
+name: mimotion
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '30 11 * * *'
+  watch:
+    types: started
+  repository_dispatch:
+    types: mimotion
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+    - name: Checkout codebase
+      uses: actions/checkout@v2
+
+    - name: mimotion
+      env:
+       PARAMETER: ${{ secrets.PARAMETER || github.event.client_payload.PARAMETER }}
+      run: |
+        bash mimotion.sh $PARAMETER
+
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        retain_days: 1
+        keep_minimum_runs: 1
