@@ -1,5 +1,3 @@
-# https://github.com/Squaregentleman/mimotion
-# https://github.com/canmengxian/mimotion
 # https://github.com/FKPYW/mimotion
 
 # 小米运动自动刷步数
