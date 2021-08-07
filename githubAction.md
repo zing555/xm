@@ -1,4 +1,4 @@
-# https://github.com/FKPYW/mimotion
+# https://github.com/thesy472472/mimotion
 
 > 小米运动 微信步数 支付宝步数
 
